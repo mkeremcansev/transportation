@@ -1,0 +1,11 @@
+@extends('web.layouts.main')
+@section('title')
+asdasdsa
+@endsection
+@section('content')
+@include('web.about.layouts.breadcrumb')
+@include('web.about.layouts.content')
+@include('web.about.layouts.founder')
+@include('web.about.layouts.review')
+@include('web.about.layouts.choose')
+@endsection
