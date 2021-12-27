@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
@@ -20,6 +21,14 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'surname',
+        'phone',
+        'company',
+        'tax_city',
+        'tax_province',
+        'tax_no',
+        'adress',
+        'profile_path',
         'email',
         'password',
     ];
@@ -42,4 +51,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getUserTaxCity()
+    {
+        return $this->hasOne(City::class, 'id', 'tax_city');
+    }
+    public function getUserTaxProvince()
+    {
+        return $this->hasOne(City::class, 'id', 'tax_province');
+    }
 }

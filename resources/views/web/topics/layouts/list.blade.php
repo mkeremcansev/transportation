@@ -4,7 +4,7 @@
             @foreach ($a_topics as $key => $a_topic)
 			<div class="strip_list wow fadeIn">
 				<figure>
-					<img src="http://via.placeholder.com/565x565.jpg" alt="{{ $a_topic->getUserInfo->name }}">
+					<img src="{{ asset($a_topic->getUserInfo->profile_path) }}" alt="{{ $a_topic->getUserInfo->name }}">
 				</figure>
 				<small>
 					@if (!is_null($a_topic->getDepartureRoute->parent_id))
@@ -27,11 +27,11 @@
 							$a_topic->getArrivalRoute->longitude
 							)])@lang('words.distance_type'))
 				</small>
-				<h3 class="mt-2">{{ $a_topic->getUserInfo->name }}</h3>
+				<h3 class="mt-2">{{ $a_topic->getUserInfo->company }}</h3>
 				<p>{{ $a_topic->product_description }}</p>
 				<h6>{{ $a_topic->tax == 1 ? $a_topic->price.__('words.currency_unit').__('words.plus_kdv') : $a_topic->price.__('words.currency_unit') }}</h6>
 				<ul>
-					<li><a href="javascript:void()" onclick="onHtmlClick('Cities', 0)" class="btn_listing">@lang('words.view_on_map')</a>
+					<li><a href="javascript:void()" onclick="onHtmlClick('Cities', {{ $key }})" class="btn_listing">@lang('words.view_on_map')</a>
 					</li>
 					<li><a href="{{ route('web.topic.show', $a_topic->slug) }}">@lang('words.detail')</a></li>
 				</ul>

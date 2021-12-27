@@ -111,7 +111,7 @@
                     <div class="row">
                             <div class="col-lg-5">
                                 <figure>
-                                    <img src="http://via.placeholder.com/1000x1000.jpg" alt="{{ $topic->slug }}" class="img-fluid rounded-circle">
+                                    <img src="{{ asset($topic->getUserInfo->profile_path) }}" alt="{{ $topic->slug }}" class="img-fluid rounded-circle">
                                 </figure>
                             </div>
                             <div class="col-lg-7">
@@ -125,7 +125,7 @@
                                             </strong>
                                         </li>
                                         <li>
-                                            <i class="icon-rss me-1"></i>
+                                            <i class="icon-rss"></i>
                                             @lang('words.joinned_time')
                                             <strong class="float-right ms-1">
                                                 {{ $topic->getUserInfo->created_at->format('d.m.Y') }}
@@ -149,7 +149,7 @@
                                             <i class="icon-phone-1"></i> 
                                             @lang('words.contact')
                                             <strong class="float-right ms-1">
-                                            +90 546 740 7599
+                                            {{ $topic->getUserInfo->phone }}
                                             </strong>
                                         </li>
                                     </ul>

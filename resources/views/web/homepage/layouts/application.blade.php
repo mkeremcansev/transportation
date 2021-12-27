@@ -6,7 +6,7 @@
             </div>
             <div class="col-md-6">
                 <small>Application</small>
-                <h3>Download <strong>Findoctor App</strong> Now!</h3>
+                <h3>Download <strong>Nakilcim.com</strong> Now!</h3>
                 <p class="lead">Tota omittantur necessitatibus mei ei. Quo paulo perfecto eu, errem percipit
                     ponderum no eos. Has eu mazim sensibus. Ad nonumes dissentiunt qui, ei menandri electram eos.
                     Nam iisque consequuntur cu.</p>

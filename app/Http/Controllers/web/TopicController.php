@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\City;
 use App\Models\Topic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class TopicController extends Controller
@@ -39,6 +40,7 @@ class TopicController extends Controller
             'product_description' => 'required|max:255',
             'vehicle_type' => 'required|integer',
             'topic_price' => 'required|integer',
+            'topic_delivery' => 'required|integer',
             'topic_tax' => 'required|integer',
         ]);
         $departure_route = '';
@@ -59,8 +61,9 @@ class TopicController extends Controller
             'vehicle_type' => $request->vehicle_type,
             'departure_route' => $departure_route,
             'arrival_route' => $arrival_route,
-            'user_id' => 1,
+            'user_id' => Auth::user()->id,
             'price' => $request->topic_price,
+            'delivery' => $request->topic_delivery,
             'tax' => $request->topic_tax,
             'status' => 0
         ]);

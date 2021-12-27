@@ -1,9 +1,4 @@
 /*
-Theme Name: Findoctor
-Theme URI: http://www.ansonika.com/findoctor/
-Author: Ansonika
-Author URI: http://themeforest.net/user/Ansonika/
-
 [Table of contents] 
 
 1. SITE STRUCTURE and TYPOGRAPHY
@@ -524,7 +519,7 @@ ul#top_access {
 @media (max-width: 991px) {
   ul#top_access {
     /* For less than 991px */
-    right: 45px;
+    right: 100px;
     top: 2px;
   }
 }
@@ -5190,4 +5185,9 @@ ul#cat_nav li:last-child a:hover, ul#cat_nav li:last-child a#active, ul#cat_nav 
 }
 .general_disabled {
    pointer-events: none !important;
+}
+@media (max-width: 575px) {
+  #logo_home {
+    display: none !important;
+  }
 }

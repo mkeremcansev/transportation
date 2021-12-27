@@ -14,16 +14,16 @@ var
 		'Cities': [
             @foreach ($a_topics as  $a_topic)
                 {
-                    name: 'qweqweqw',
+                    name: '{{ $a_topic->getUserInfo->company }}',
                     location_latitude: '{{ $a_topic->getLocationInfo->latitude }}',
                     location_longitude: '{{ $a_topic->getLocationInfo->longitude }}',
-                    map_image_url: '{{ asset("web") }}/img/canseworks.png',
-                    type: 'Alım tarihi : {{ $a_topic->purchase_date }}',
-                    url_detail: 'detail-page.html',
-                    name_point: 'qweqweqwe',
-                    description_point: 'Teslim tarihi : {{ $a_topic->delivery_date }}',
-                    get_directions_start_address: '',
-                    phone: '+90 546 740 7599'
+                    map_image_url: '{{ asset($a_topic->getUserInfo->profile_path) }}',
+                    type: '{{ $a_topic->purchase_date }} - {{ $a_topic->delivery_date }}',
+                    url_detail: '',
+                    name_point: '{{ $a_topic->getUserInfo->company }}',
+                    description_point: '{{ $a_topic->tax == 1 ? $a_topic->price.__("words.currency_unit").__("words.plus_kdv") : $a_topic->price.__("words.currency_unit") }}',
+                    get_directions_start_address: '{{ $a_topic->getUserInfo->getUserTaxCity->title }}',
+                    phone: '{{ $a_topic->getUserInfo->phone }}'
                 },
             @endforeach
 		]
@@ -222,7 +222,7 @@ function getInfoBox(item) {
 			'<h3><a href=' + item.url_detail + '>' + item.name_point + '</a></h3>' +
 			'<span>' + item.description_point + '</span>' +
 			'<div class="marker_tools">' +
-			'<form action="http://maps.google.com/maps" method="get" target="_blank" style="display:inline-block""><input name="saddr" value="' + item.get_directions_start_address + '" type="hidden"><input type="hidden" name="daddr" value="' + item.location_latitude + ',' + item.location_longitude + '"><button type="submit" value="Get directions" class="btn_infobox_get_directions">Directions</button></form>' +
+			'<form action="http://maps.google.com/maps" method="get" target="_blank" style="display:inline-block""><input name="saddr" value="' + item.get_directions_start_address + '" type="hidden"><input type="hidden" name="daddr" value="' + item.location_latitude + ',' + item.location_longitude + '"><button type="submit" value="Get directions" class="btn_infobox_get_directions">' + item.get_directions_start_address + '</button></form>' +
 			'<a href="tel://' + item.phone + '" class="btn_infobox_phone">' + item.phone + '</a>' +
 			'</div>' +
 			'</div>',

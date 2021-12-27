@@ -27,10 +27,11 @@ class ViewShareProvider extends ServiceProvider
     public function boot()
     {
         if (!$this->app->runningInConsole()) {
-            view()->share('a_topics', Topic::with('getLocationInfo', 'getDepartureRoute.getMainCity', 'getArrivalRoute.getMainCity', 'getUserInfo', 'getVehicleInfo')->where('status', 1)->orderBy('id', 'ASC')->paginate(4));
+            view()->share('a_topics', Topic::with('getLocationInfo', 'getDepartureRoute.getMainCity', 'getArrivalRoute.getMainCity', 'getUserInfo', 'getVehicleInfo')->where('status', 1)->orderBy('id', 'ASC')->paginate(5));
             view()->share('cities', City::where('parent_id', null)->orderBy('id', 'ASC')->get());
             view()->share('vehicles', Vehicle::orderBy('id', 'ASC')->get());
             view()->share('provinces', City::where('parent_id', '!=', null)->orderBy('id', 'ASC')->get());
+            view()->share('citys', City::orderBy('id', 'ASC')->get());
         }
     }
 }

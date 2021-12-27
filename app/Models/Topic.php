@@ -20,6 +20,7 @@ class Topic extends Model
         'arrival_route',
         'user_id',
         'price',
+        'delivery',
         'tax',
         'status',
     ];

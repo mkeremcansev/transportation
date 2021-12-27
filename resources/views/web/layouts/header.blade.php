@@ -37,8 +37,40 @@
 				<nav class="col-lg-9 col-6">
 					<a class="cmn-toggle-switch cmn-toggle-switch__htx open_close" href="#0"><span>Menu mobile</span></a>
 					<ul id="top_access">
-						<li><a href="{{ route('web.login.index') }}"><i class="icon-user-1 fs-1_5"></i></a></li>
-						<li><a href="{{ route('web.register.index') }}"><i class="icon-user-add fs-1_5"></i></a></li>
+						@auth
+							@role('admin|moderator|institutional|individual')
+								<li>
+									<a href="{{ route('web.account.index') }}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="@lang('words.my_account')">
+										<i class="icon-user-1 fs-1_5"></i>
+									</a>
+								</li>
+							@endrole
+							@role('admin|moderator|institutional')
+								<li>
+									<a href="{{ route('web.topic.index') }}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="@lang('words.topic_create')">
+										<i class="icon-plus-2 fs-1_5"></i>
+									</a>
+								</li>
+							@endrole
+							@role('admin|moderator|institutional|individual')
+								<li>
+									<a href="{{ route('web.logout.store') }}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="@lang('words.logout')">
+										<i class="icon-login-2 fs-1_5"></i>
+									</a>
+								</li>
+							@endrole
+						@else
+							<li>
+								<a href="{{ route('web.login.index') }}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="@lang('words.login')">
+									<i class="icon-user-1 fs-1_5"></i>
+								</a>
+							</li>
+							<li>
+								<a href="{{ route('web.register.index') }}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="@lang('words.register')">
+									<i class="icon-user-add fs-1_5"></i>
+								</a>
+							</li>
+						@endauth
 					</ul>
 					<div class="main-menu">
 						<ul>
@@ -46,6 +78,7 @@
 							<li><a href="{{ route('web.about-us.index') }}">@lang('words.about_us')</a></li>
 							<li><a href="{{ route('web.faq.index') }}">@lang('words.faq')</a></li>
 							<li><a href="{{ route('web.contact.index') }}">@lang('words.contact')</a></li>
+							<li><a href="{{ route('web.contact.index') }}">@lang('words.patch_notes')</a></li>
 						</ul>
 					</div>
 				</nav>

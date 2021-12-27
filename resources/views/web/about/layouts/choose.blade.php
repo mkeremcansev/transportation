@@ -1,6 +1,6 @@
 <div class="container margin_120_95">
     <div class="main_title">
-        <h2>Why Choose Findoctor</h2>
+        <h2>Why Choose Nakilcim.com</h2>
         <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
     </div>
     <div class="row">

@@ -1,7 +1,7 @@
 <div class="bg_color_1">
     <div class="container margin_120_95">
         <div class="main_title">
-            <h1>About Findoctor</h1>
+            <h1>About Nakilcim.com</h1>
             <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
         </div>
         <div class="row justify-content-between">

@@ -16,6 +16,15 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('surname');
+            $table->string('company')->nullable();
+            $table->string('phone')->unique();
+            $table->unsignedBigInteger('tax_city')->nullable();
+            $table->foreign('tax_city')->references('id')->on('cities')->onDelete('cascade');
+            $table->unsignedBigInteger('tax_province')->nullable();
+            $table->foreign('tax_province')->references('id')->on('cities')->onDelete('cascade');
+            $table->string('tax_no')->nullable();
+            $table->longText('adress')->nullable();
             $table->string('profile_path');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

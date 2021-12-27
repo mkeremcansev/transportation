@@ -161,6 +161,11 @@ return [
     */
 
     'attributes' => [
+        'name' => 'İsim',
+        'surname' => 'Soyisim',
+        'email' => 'E-Posta',
+        'phone' => 'Telefon',
+        'adress' => 'Adres',
         'where_from_city' => 'Nereden (İl)',
         'where_from_province' => 'Nereden (İlçe)',
         'to_where_city' => 'Nereye (İl)',
@@ -175,6 +180,16 @@ return [
         'topic_tax' => 'Vergi',
         'email_adress' => 'E-Posta Adresi',
         'password' => 'Şifre',
+        'password_repeat' => 'Şifre Tekrar',
+        'profile_path' => 'Profil Fotoğrafı',
+        'contract' => 'Sözleşme',
+        'tax_city' => 'Vergi Dairesi İl',
+        'tax_province' => 'Vergi Dairesi İlçe',
+        'tax_no' => 'Vergi Numarası',
+        'topic_delivery' => 'Sefer Sayısı',
+        'old_password' => 'Eski Şifre',
+        'new_password' => 'Yeni Şifre',
+        'company' => 'Firma Adı',
     ],
 
 ];

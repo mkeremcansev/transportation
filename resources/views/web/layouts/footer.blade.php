@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="col-lg-3 col-md-12">
 				<p>
-					<a href="index.html" title="Findoctor">
+					<a href="index.html" title="Nakilcim.com">
 						<img src="{{ asset('web/img/logo.png') }}" alt="" width="163" height="36" class="img-fluid">
 					</a>
 				</p>
@@ -32,8 +32,8 @@
 			<div class="col-lg-3 col-md-4">
 				<h5>Contact with Us</h5>
 				<ul class="contacts">
-					<li><a href="tel://61280932400"><i class="icon_mobile"></i> + 61 23 8093 3400</a></li>
-					<li><a href="mailto:info@findoctor.com"><i class="icon_mail_alt"></i> help@findoctor.com</a></li>
+					<li><a href="tel://5467407599"><i class="icon_mobile"></i>+90 546 740 75 99</a></li>
+					<li><a href="mailto:info@nakilcim.com.com"><i class="icon_mail_alt"></i>info@nakilcim.com.com</a></li>
 				</ul>
 				<div class="follow_us">
 					<h5>Follow us</h5>
@@ -55,7 +55,7 @@
 				</ul>
 			</div>
 			<div class="col-md-4">
-				<div id="copy">© 2021 Findoctor</div>
+				<div id="copy">© 2021 Nakilcim.com</div>
 			</div>
 		</div>
 	</div>
