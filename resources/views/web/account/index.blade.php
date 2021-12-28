@@ -73,6 +73,13 @@
             })
         })
     </script>
+@if ($message = Session::get('success'))
+    <script>
+        iziToast.success({
+            message: '{{ $message }}'
+        })
+    </script>
+@endif
 @endsection
 @section('content')
 <div id="breadcrumb">

@@ -5180,6 +5180,27 @@ ul#cat_nav li:last-child a:hover, ul#cat_nav li:last-child a#active, ul#cat_nav 
   color: #fff;
   cursor: pointer;
 }
+.topic_detail_check_btn1 {
+  width: 100% !important;
+    background-color: #3f4079;
+    border: none !important;
+    display: block;
+    color: #fff;
+    padding: 10px;
+    font-weight: 500;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    text-align: center;
+    cursor: pointer;
+}
+.topic_detail_check_btn1:hover {
+  border: none !important;
+  background-color: #e74e84;
+  color: #fff;
+  cursor: pointer;
+}
 #topic_price {
   -moz-appearance: textfield !important;
 }

@@ -86,4 +86,9 @@ return [
     'new_password' => 'Yeni Şifre',
     'delivery_counts' => 'Sefer Sayısı',
     'old_password_error' => 'Eski Şifre hatalı',
+    'unverified_description' => 'Bu sayfayı görebilmek için E-Posta doğrulaması yapmanız gerekmektedir. ":button" butonuna tıklayarak işlem gerçekleştirebilirsiniz. ',
+    'email_verify_link_send' => 'Doğrulama Kodu Gönder',
+    'email_verified_success' => 'E-Posta doğrulama işlemi başarıyla gerçekleşti.',
+    'email_verify_link_send_success' => 'E-Posta doğrulama kodu başarıyla gönderildi.',
+    'password_reset_link_send' => 'Şifre Sıfırlama Kodu Gönder',
 ];

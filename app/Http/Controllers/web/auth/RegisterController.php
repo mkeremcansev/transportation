@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Helper\Helper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -43,6 +44,7 @@ class RegisterController extends Controller
             'adress' => $request->adress,
             'profile_path' => Helper::imageUpload($request->file('profile_path'), 'storage'),
             'password' => Hash::make($request->password),
+            'hash' => Str::random(15),
         ]);
         $user->assignRole('institutional');
         return response()->json(['success' => __('words.register_action_success')]);
@@ -69,6 +71,7 @@ class RegisterController extends Controller
             'adress' => $request->adress,
             'profile_path' => Helper::imageUpload($request->file('profile_path'), 'storage'),
             'password' => Hash::make($request->password),
+            'hash' => Str::random(15),
         ]);
         $user->assignRole('individual');
         return response()->json(['success' => __('words.register_action_success')]);

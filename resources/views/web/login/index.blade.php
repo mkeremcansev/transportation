@@ -41,6 +41,13 @@
         })
     })
 </script>
+@if ($message = Session::get('status'))
+    <script>
+        iziToast.success({
+            message: '{{ $message }}'
+        })
+    </script>
+@endif
 @endsection
 @section('content')
 <div class="bg_color_2">
@@ -60,7 +67,7 @@
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control" placeholder="@lang('words.password')" name="password" id="password">
-                            <a href="javascript:void()" class="forgot"><small>@lang('words.forgot_password')</small></a>
+                            <a href="{{ route('password.request') }}" class="forgot"><small>@lang('words.forgot_password')</small></a>
                         </div>
                         <div class="form-group">
                            <a  id="user_login" class="topic_detail_check_btn mb-3">@lang('words.login')</a>
