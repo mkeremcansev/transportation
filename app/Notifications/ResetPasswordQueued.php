@@ -45,15 +45,15 @@ class ResetPasswordQueued extends ResetPassword  implements ShouldQueue
         if (static::$toMailCallback) {
             return call_user_func(static::$toMailCallback, $notifiable, $this->token);
         }
-        $url = env('APP_URL') . route('password.reset', [
+        $url = config('app.url') . route('password.reset', [
             'token' => $this->token,
             'email' => $notifiable->getEmailForPasswordReset(),
         ], false);
         return (new MailMessage)
-            ->subject('gardaş niye şifre yeniliyon?')
-            ->line('Gardaş burası ilk satır!')
-            ->action('Şifreni değiştir gardaş', $url)
-            ->line('Siteye girmişsin eywallah gardaş');
+            ->subject(__('words.verify_your_password_reset'))
+            ->line(__('words.hello_name', ['name' => $notifiable->name]))
+            ->action(__('words.password_reset'), $url)
+            ->line(__('words.password_reset_message', ['company' => config('app.name'), 'button' => __('words.password_reset')]));
     }
 
     /**

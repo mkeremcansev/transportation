@@ -42,10 +42,10 @@ class VerifyEmailQueued extends VerifyEmail implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject('gardaş niye E-postanı doğrulamıyon?')
-            ->line('Gardaş burası ilk satır!')
-            ->action('E-Postanı doğrula gardaş', $this->verificationUrl($notifiable))
-            ->line('Siteye girmişsin eywallah gardaş');
+            ->subject(__('words.verify_your_email_adress'))
+            ->line(__('words.hello_name', ['name' => $notifiable->name]))
+            ->action(__('words.email_verify'), $this->verificationUrl($notifiable))
+            ->line(__('words.mail_hello_verify_message', ['company' => config('app.name'), 'button' => __('words.email_verify')]));
     }
 
     /**

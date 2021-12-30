@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\TopicSaveJob;
 use App\Models\City;
 use App\Models\Topic;
 use Illuminate\Http\Request;
@@ -67,6 +68,7 @@ class TopicController extends Controller
             'tax' => $request->topic_tax,
             'status' => 0
         ]);
+        dispatch(new TopicSaveJob(Auth::user()));
         return response()->json([
             'success' => __('words.added_success')
         ]);
