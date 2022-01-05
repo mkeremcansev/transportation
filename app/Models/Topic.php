@@ -44,4 +44,8 @@ class Topic extends Model
     {
         return $this->hasOne(Vehicle::class, 'id', 'vehicle_type');
     }
+    function getTopicOffer()
+    {
+        return $this->hasMany(Offer::class, 'topic_id', 'id');
+    }
 }

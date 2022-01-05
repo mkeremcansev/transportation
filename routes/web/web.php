@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\web\auth\AccountController;
 use App\Http\Controllers\web\auth\LoginController;
 use App\Http\Controllers\web\auth\LogoutController;
 use App\Http\Controllers\web\auth\PasswordChangeController;
@@ -7,7 +8,9 @@ use App\Http\Controllers\web\auth\ProfilePathChangeController;
 use App\Http\Controllers\web\auth\RegisterController;
 use App\Http\Controllers\web\auth\ResetPasswordController;
 use App\Http\Controllers\web\auth\VerifyEmailController;
+use App\Http\Controllers\web\OfferController;
 use App\Http\Controllers\web\TopicController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,7 +51,10 @@ Route::name('web.')->middleware(['auth', 'verified', 'role:admin|moderator|insti
     Route::get('/topic/{slug}', [TopicController::class, 'show'])->name('topic.show');
     Route::post('/user/password/change', [PasswordChangeController::class, 'update'])->name('password.change.update');
     Route::post('user/profile_path/change', [ProfilePathChangeController::class, 'update'])->name('profile_path.change.update');
-    Route::view('/account', 'web.account.index')->name('account.index');
+    Route::get('/account', [AccountController::class, 'index'])->name('account.index');
+});
+Route::name('web.')->middleware(['auth', 'verified', 'role:admin|moderator|individual'])->group(function () {
+    Route::post('/offer/store', [OfferController::class, 'store'])->name('offer.store');
 });
 Route::name('web.')->middleware('auth')->group(function () {
     Route::get('/logout', [LogoutController::class, 'store'])->name('logout.store');

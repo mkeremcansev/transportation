@@ -19,17 +19,10 @@
 					@else
 						{{ $a_topic->getArrivalRoute->title }}
 					@endif
-					(@lang('words.avarage_distance',[
-						'distance' => getDistance(
-							$a_topic->getDepartureRoute->latitude,
-							$a_topic->getDepartureRoute->longitude, 
-							$a_topic->getArrivalRoute->latitude, 
-							$a_topic->getArrivalRoute->longitude
-							)])@lang('words.distance_type'))
 				</small>
 				<h3 class="mt-2">{{ $a_topic->getUserInfo->company }}</h3>
 				<p>{{ $a_topic->product_description }}</p>
-				<h6>{{ $a_topic->tax == 1 ? $a_topic->price.__('words.currency_unit').__('words.plus_kdv') : $a_topic->price.__('words.currency_unit') }}</h6>
+				<h6>{{ $a_topic->tax == 1 ? priceFormat($a_topic->price).__('words.currency_unit').__('words.plus_kdv') : priceFormat($a_topic->price).__('words.currency_unit') }}</h6>
 				<ul>
 					<li><a href="javascript:void()" onclick="onHtmlClick('Cities', {{ $key }})" class="btn_listing">@lang('words.view_on_map')</a>
 					</li>

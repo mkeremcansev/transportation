@@ -32,7 +32,7 @@ class CreateTopicsTable extends Migration
             $table->integer('price');
             $table->integer('delivery');
             $table->boolean('tax', 0, 1);
-            $table->boolean('status', 0, 1);
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

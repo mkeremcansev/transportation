@@ -2,6 +2,46 @@
 @section('title')
     asdasdas
 @endsection
+@section('script')
+    <script>
+        $(document).ready(function(){
+            $('#send_offer').on('click', function(e){
+                e.preventDefault();
+                let send_offer_btn =  $('#send_offer')
+                send_offer_btn.addClass('general_disabled')
+                let topic_id = '{{ $topic->id }}'
+                $.ajax({
+                    method: 'POST',
+                    url: '{{ route("web.offer.store") }}',
+                    data: {topic_id:topic_id},
+                    dataType: 'json',
+                    success: function(response){
+                        if(response.status == 201){
+                            iziToast.error({
+                                message: response.message
+                            })
+                            send_offer_btn.removeClass('general_disabled')
+                        } else if(response.status == 200) {
+                            iziToast.success({
+                                message: response.message
+                            })
+                            send_offer_btn.addClass('general_disabled')
+                            setTimeout(() => {
+                                location.reload()
+                            }, 1500);
+                        }
+                    },
+                    error: function(response){
+                        iziToast.error({
+                            message: validateError(response)
+                        })
+                        send_offer_btn.removeClass('general_disabled')
+                    }
+                })
+            })
+        })
+    </script>
+@endsection
 @section('content')
 <div id="breadcrumb">
     <div class="container">
@@ -97,11 +137,15 @@
                         <div class="indent_title_in col-lg-6">
                             <i class="icon-money-2"></i> 
                             <h3>@lang('words.price')</h3>
-                            <p>{{ $topic->price.__('words.currency_unit') }}</p>
+                            <p>{{ priceFormat($topic->price).__('words.currency_unit') }}</p>
                         </div>
                     </div>
                 </div>
-                <a href="" class="topic_detail_check_btn mb-3">Teklif gönder</a>
+                @auth
+                    @role('admin|moderator|individual')
+                    <a id="send_offer" class="topic_detail_check_btn mb-3">@lang('words.offer_send')</a>
+                    @endrole
+                @endauth
         </div>
         <aside class="col-xl-5 col-lg-5" id="sidebar">
             <div class="main_title_4">

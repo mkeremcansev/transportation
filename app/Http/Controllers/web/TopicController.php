@@ -65,8 +65,7 @@ class TopicController extends Controller
             'user_id' => Auth::user()->id,
             'price' => $request->topic_price,
             'delivery' => $request->topic_delivery,
-            'tax' => $request->topic_tax,
-            'status' => 0
+            'tax' => $request->topic_tax
         ]);
         dispatch(new TopicSaveJob(Auth::user()));
         return response()->json([
